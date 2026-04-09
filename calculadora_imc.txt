@@ -1,0 +1,33 @@
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+Console.WriteLine("Cálculo de IMC: ");
+
+Console.Write("Digite o peso: ");
+float.TryParse(Console.ReadLine().Replace(".", ","), out float peso);
+
+Console.WriteLine("Digite a altura em metros: ");
+float.TryParse(Console.ReadLine().Replace(".", ","), out float altura);
+
+float imc = peso / (float)Math.Pow(altura, 2);
+Console.WriteLine($"Imc = {imc}");
+
+if (imc < 18.5)
+{
+    Console.WriteLine("Você está em estado de magreza extrema, procure ajuda profissional");
+}
+else if (imc >= 18.5 && imc < 25)
+{
+    Console.WriteLine("Você está no peso ideal!");
+}
+else if (imc >= 25 && imc < 30)
+{
+    Console.WriteLine("Você está com sobrepeso, procure ajuda profissional");
+}
+else if (imc >= 30 && imc < 40)
+{
+    Console.WriteLine("Você está com obesidade, procure ajuda profissional");
+}
+else
+{
+    Console.WriteLine("Você está com obesidade grave, procure urgentemente ajuda profissional");
+}

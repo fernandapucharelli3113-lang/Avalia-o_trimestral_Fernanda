@@ -1,0 +1,8 @@
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
+//Atividade 1
+Console.WriteLine("Um astuto ancião conhecido como Mythrandir 🔮 está  precisando calcular a área de sua magia\n" +
+    "usando um triângulo equilátero. Digite a medida dos lados:");
+    double lado =  double.Parse(Console.ReadLine());
+double area = (lado * lado) * (1.732 / 4);
+Console.WriteLine($"O valor é {area}");
+Console.WriteLine("\n");

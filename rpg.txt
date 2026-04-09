@@ -1,0 +1,85 @@
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+// Entrada de dados
+Console.Write("Nome do Herói: ");
+string nome = Console.ReadLine();
+
+Console.Write("Classe do Herói (Mago, Clérigo, Guerreiro, Druida, Anão, Elfo ou Troll): ");
+string classe = Console.ReadLine();
+
+Console.Write("Nível do Herói (número inteiro): ");
+int nivel = int.TryParse(Console.ReadLine(), out int n) ? n : 0;
+
+Console.Write("Pontos de Vida (HP) (número decimal ou inteiro): ");
+double hp = double.TryParse(Console.ReadLine(), out double h) ? h : 0;
+
+Console.Write("Pontos de Mana (inteiro): ");
+int mana = int.TryParse(Console.ReadLine(), out int m) ? m : 0;
+
+Console.Write("Ouro na mochila (número decimal): ");
+double ouro = double.TryParse(Console.ReadLine(), out double o) ? o : 0;
+
+// REGRA DA GUILDA (com != e !)
+
+if (classe != "Troll" && !(nivel < 5))
+{
+    Console.WriteLine("✅ Pode entrar na guilda!");
+}
+else if (classe == "Troll")
+{
+    Console.WriteLine("❌ Trolls não são bem-vindos! Expulso da guilda.");
+    return;
+}
+else
+{
+    Console.WriteLine("❌ Nível muito baixo para entrar na guilda.");
+    return;
+}
+
+// CÁLCULO DO PODER BASE
+double poderBase = (nivel * 10) + (hp / 2) - 5;
+Console.WriteLine($"Poder Base do herói: {poderBase}");
+// DANO CRÍTICO (% e ==)
+if (poderBase % 2 == 0)
+{
+    Console.WriteLine("⚔️✨ Ataque Crítico ativado!");
+}
+
+bool podeAtacar = false;
+
+// REGRA DA MAGIA (||, &&, >=, <=)
+if (classe == "Mago" || classe == "Druida" || classe == "Clérigo")
+{
+    if (mana >= 30 && nivel <= 100)
+    {
+        Console.WriteLine("🔮 O herói usa magia contra o dragão!");
+        podeAtacar = true;
+    }
+    else
+    {
+        Console.WriteLine("🪵 O cajado falhou! Mana insuficiente.");
+    }
+}
+
+// ATAQUE FÍSICO (>, &&)
+else if (classe == "Guerreiro" || classe == "Anão" || classe == "Elfo")
+{
+    if (hp > 20 && poderBase > 50)
+    {
+        Console.WriteLine("🗡 O herói ataca fisicamente o dragão!");
+        podeAtacar = true;
+    }
+}
+
+// SUBORNO AO DRAGÃO (||)
+if (!podeAtacar)
+{
+    if (ouro > 1000 || classe == "Anão")
+    {
+        Console.WriteLine("💰 O herói subornou o dragão e escapou!");
+    }
+    else
+    {
+        Console.WriteLine("🔥 O herói virou churrasco de dragão...");
+    }
+}

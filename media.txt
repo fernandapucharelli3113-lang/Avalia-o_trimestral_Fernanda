@@ -1,0 +1,56 @@
+﻿using System;
+
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.WriteLine("Cálculo de Média");
+
+int cont = 0;
+double media = 0; // Usei double para permitir casas decimais
+string sair;
+
+while (true) // 1º loop infinito
+{
+    cont++;
+    Console.Write($"\nDigite a {cont}ª nota: ");
+    double nota = double.Parse(Console.ReadLine()!.Replace(".", ","));
+    media = media + nota; // Somando as notas na variável media
+
+    Console.Write("Quer Sair do Programa [S/N]: ");
+    sair = Console.ReadLine()!.ToLower()!;
+
+    if (sair == "s")
+    {
+        break; // Sai do loop principal
+    }
+
+    // 2º loop: validação da entrada
+    while (sair != "s" || sair != "n")
+    {
+        Console.Write("Digite somente [S/N] : ");
+        sair = Console.ReadLine()!.ToLower()!;
+
+        if (sair == "s")
+        {
+            break; // Sai da validação
+        }
+        if (sair == "n")
+        {
+            break; // Sai da validação
+        }
+    }
+
+    // Verifica se após a validação o usuário decidiu sair
+    if (sair == "s")
+    {
+        break; // Sai do loop principal
+    }
+}
+
+// Cálculo final e exibição
+media = media / cont;
+Console.WriteLine($"\nA média é {Math.Round(media, 2)}");
+
+/*
+ declarar variaveis
+ 1 º loop infinito
+ sair
+*/

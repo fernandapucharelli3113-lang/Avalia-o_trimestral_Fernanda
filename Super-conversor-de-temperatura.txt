@@ -1,0 +1,37 @@
+﻿//Autoriza o uso de emoji e caracteres especiais do português
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+//Mensagem de exibição para o usuário até a linha 6
+Console.WriteLine("##########################################");
+Console.WriteLine("🔥Super conversor de temperatura🌡️ ");
+Console.Write("Digite a Temperatura em C°: ");
+//Permite leitura e a conversão de um valor digitado no teclado e uma saída em uma nova variável
+float.TryParse(Console.ReadLine(), out float celsius);
+//cria uma variável resultado e
+float resultado = (celsius * 9 / 5) + 32;
+Console.WriteLine($"A temperatura🌡️ é C°: {celsius}\nA conversão em F°: {resultado}");
+Console.WriteLine("########################################");
+
+Console.Write("Digite a Temperatura em F°: ");
+//Permite leitura e a conversão de um valor digitado no teclado e uma saída em uma nova variável
+float.TryParse(Console.ReadLine(), out float Fahrenheit);
+//cria uma variável resultado e
+float resultado1 = (Fahrenheit - 32) * 5 / 9;
+Console.WriteLine($"A temperatura🌡️ é F°: {Fahrenheit}\nA conversão em C°: {resultado1}");
+Console.WriteLine("########################################");
+
+Console.Write("Digite a Temperatura em K°: ");
+//Permite leitura e a conversão de um valor digitado no teclado e uma saída em uma nova variável
+float.TryParse(Console.ReadLine(), out float Kelvin);
+//cria uma variável resultado e
+float resultado2 = (Kelvin - 273.15f);
+Console.WriteLine($"A temperatura🌡️ é K°: {Kelvin}\nA conversão em C°: {resultado2}");
+Console.WriteLine("########################################");
+
+Console.Write("Digite a Temperatura em K°: ");
+//Permite leitura e a conversão de um valor digitado no teclado e uma saída em uma nova variável
+float.TryParse(Console.ReadLine(), out float Kelvin1);
+//cria uma variável resultado e
+float resultado3 = (Kelvin1 - 273.15f) * 9 / 5 + 32;
+Console.WriteLine($"A temperatura🌡️ é K°: {Kelvin1}\nA conversão em F°: {resultado3}");
+Console.WriteLine("########################################");
+
