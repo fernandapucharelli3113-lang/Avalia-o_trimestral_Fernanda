@@ -1,0 +1,13 @@
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.WriteLine("Bem vindo a calculadora de P.A");
+Console.WriteLine("Digite até que número você quer : ");
+int termos;
+int.TryParse(Console.ReadLine(), out termos);
+Console.WriteLine("Digite a razão: ");
+int razão;
+int.TryParse(Console.ReadLine(), out razão);
+
+    for(int i = 1;  i <= termos; i = i + razão) {
+    Console.Write($"{(i-1==0?"":$"{i-1}")}➡️"); 
+}
+Console.WriteLine("🎯");
