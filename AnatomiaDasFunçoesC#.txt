@@ -1,0 +1,28 @@
+﻿
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.WriteLine("Aventureiros(as), vocês acabaram de retornar de uma masmorra cheia" +
+    " de tesouros e precisam consertar seus" +
+    " equipamentos na forja do mestre anão Thorin. ");
+int resultado = somarEquipamentos(LerMoeadas(), LerMoeadas());
+Console.WriteLine("🪄O preço total dos equipamentos é: " + resultado);
+
+int somarEquipamentos(int valor1, int valor2)
+{
+    return valor1 + valor2;
+}
+//Fazer subtração, multiplicação e divisão
+
+int LerMoeadas()
+{
+    Console.WriteLine("Digite o valor do equipamento:  ");
+    if (int.TryParse(Console.ReadLine()!, out int n))
+    {
+        return n;
+    }
+    else
+    {
+        Console.WriteLine("Tentativa de goblin detectada! Valor inválido.");
+ 
+        return 0;
+    }
+}
