@@ -1,0 +1,66 @@
+﻿using System.ComponentModel.Design;
+
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+menu();
+List<double> listaNota = new List<double>();
+for (int i = 0; i < 4; i++)
+{
+    listaNota.Add(digitarNota());
+}
+Console.WriteLine(media(soma()));
+
+
+double media(double a)
+{
+    a = soma();
+    return a / listaNota.Count;
+}
+double soma()
+{
+    double soma = 0;
+    foreach (var item in listaNota)
+    {
+        soma = soma + item;
+    }
+    return soma;
+}
+
+double digitarNota()
+{
+    double.TryParse(Console.ReadLine()!, out double n);
+    return n;
+}
+
+void menu()
+{
+    Console.WriteLine("Bem vindos a calculadora de média! Digite as quatro notas:");
+}
+double m = media(soma());
+Console.WriteLine(m);
+status(m);
+
+void status(double media)
+{
+    if (media >= 6)
+    {
+        Console.WriteLine("Párabens, você conseguiu ser aprovado");
+    }
+    else if (media >= 8)
+    {
+        Console.WriteLine("Parabéns, você foi aprovado com uma nota boa!");
+    }
+
+    else if (media >= 9.5)
+    {
+        Console.WriteLine("Parabéns, você foi aprovado com uma nota muito boa!");
+    }
+    else if (media < 6)
+    {
+        Console.WriteLine("Sinto muito, você foi reprovado");
+    }
+}
+
+
+
+
+
